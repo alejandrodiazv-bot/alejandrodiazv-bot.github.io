@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro Díaz | Portafolio ML</title>
+    <style>
+        /* VARIABLES ML-OPTIMIZADAS */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --dark-bg: #0f172a;
+            --darker-bg: #020617;
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
+        }
+
+        /* RESET ML */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--primary-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--text-light), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .github-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover, .github-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* PROYECTOS SECTION */
+        .proyectos {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .proyectos h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+        }
+
+        .grid-proyectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .proyecto-card {
+            background: var(--darker-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+            border: 1px solid #334155;
+        }
+
+        .proyecto-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .proyecto-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            background: var(--primary-color);
+        }
+
+        .proyecto-card h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .proyecto-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            min-height: 60px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 10px;
+        }
+
+        .proyecto-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .proyecto-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+            padding: 8px 16px;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .proyecto-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .grid-proyectos { grid-template-columns: 1fr; }
+            .proyecto-links { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Alejandro Díaz</h1>
+            <p>Científico de Datos & Desarrollador ML</p>
+            <div>
+                <a href="#proyectos" class="cta-button">Ver Proyectos ML</a>
+                <a href="https://github.com/alejandrodiazv-bot/Portfolio" target="_blank" class="github-button">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Proyectos Section -->
+    <section id="proyectos" class="proyectos">
+        <div class="container">
+            <h2>Mis Proyectos de Machine Learning</h2>
+            <div class="grid-proyectos">
+                
+                <!-- PROYECTO 1: Análisis de Casas -->
+                <div class="proyecto-card">
+                    <div style="background: linear-gradient(135deg, #2563eb, #7c3aed); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 5px; color: white; font-size: 1.5rem;">
+                    🏠 Análisis ML
+                    </div>
+                    <h3>Análisis de Precios de Casas</h3>
+                    <p>Modelo de Machine Learning para predecir precios de propiedades basado en ubicación y características. Incluye análisis exploratorio y visualización de datos.</p>
+                    <div>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Matplotlib</span>
+                    </div>
+                    <div class="proyecto-links">
+                        <a href="https://github.com/alejandrodiazv-bot/Portfolio/blob/main/analisis_en_ml_de_casas_seg%C3%BAn_precio_e_ubicaci%C3%B3n.py" 
+                           target="_blank" class="proyecto-link">Ver Código</a>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 2: Titanic -->
+                <div class="proyecto-card">
+                    <div style="background: linear-gradient(135deg, #059669, #0d9488); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 5px; color: white; font-size: 1.5rem;">
+                    🚢 Competencia Titanic
+                    </div>
+                    <h3>Predicción de Supervivencia - Titanic</h3>
+                    <p>Solución para la competencia de Kaggle: predicción de supervivencia de pasajeros usando técnicas de clasificación y feature engineering.</p>
+                    <div>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Seaborn</span>
+                    </div>
+                    <div class="proyecto-links">
+                        <a href="https://github.com/alejandrodiazv-bot/Portfolio/blob/main/titanic_(taggle).py" 
+                           target="_blank" class="proyecto-link">Ver Código</a>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 3: Ficha Médica -->
+                <div class="proyecto-card">
+                    <div style="background: linear-gradient(135deg, #dc2626, #ea580c); height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 5px; color: white; font-size: 1.5rem;">
+                    🏥 Sistema Médico
+                    </div>
+                    <h3>Sistema de Fichas Médicas</h3>
+                    <p>Aplicación web para gestión de fichas médicas con interfaz intuitiva y base de datos. Manejo de historiales médicos y información de pacientes.</p>
+                    <div>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Streamlit</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">SQLite</span>
+                    </div>
+                    <div class="proyecto-links">
+                        <a href="https://github.com/alejandrodiazv-bot/Portfolio/blob/main/men%C3%BA_de_ficha_m%C3%A9dica_.py" 
+                           target="_blank" class="proyecto-link">Ver Código</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth Scroll ML-Optimizado
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Efecto escritura ML
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.textContent;
+        
+        function typeWriter(element, text, i = 0) {
+            if (i < text.length) {
+                element.textContent = text.substring(0, i + 1);
+                setTimeout(() => typeWriter(element, text, i + 1), 100);
+            }
+        }
+
+        // Iniciar efecto al cargar
+        window.addEventListener('load', () => {
+            heroTitle.textContent = '';
+            typeWriter(heroTitle, originalText);
+        });
+
+        // Efecto parallax suave
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
