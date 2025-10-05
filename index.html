@@ -1,116 +1,3 @@
-<!-- ANIMACIÓN ML - RED NEURONAL -->
-<canvas id="mlParticles"></canvas>
-
-<script>
-// Configuración de partículas ML
-const canvas = document.getElementById('mlParticles');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const particles = [];
-const connections = [];
-
-// Crear partículas
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-        this.color = `hsl(${Math.random() * 60 + 200}, 70%, 60%)`;
-    }
-
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-
-    draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-// Inicializar partículas
-for (let i = 0; i < 80; i++) {
-    particles.push(new Particle());
-}
-
-// Animación
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Actualizar y dibujar partículas
-    particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-    });
-
-    // Dibujar conexiones (red neuronal)
-    particles.forEach((a, i) => {
-        particles.forEach((b, j) => {
-            const distance = Math.sqrt(
-                Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2)
-            );
-            if (distance < 100) {
-                ctx.strokeStyle = `hsla(200, 70%, 60%, ${0.2 * (1 - distance/100)})`;
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.moveTo(a.x, a.y);
-                ctx.lineTo(b.x, b.y);
-                ctx.stroke();
-            }
-        });
-    });
-
-    requestAnimationFrame(animate);
-}
-
-animate();
-
-// Responsive
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-</script>
-
-<style>
-#mlParticles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -369,6 +256,103 @@ window.addEventListener('resize', () => {
             </div>
         </div>
     </section>
+<!-- ANIMACIÓN ML - RED NEURONAL -->
+<canvas id="mlParticles"></canvas>
+
+<script>
+// Configuración de partículas ML
+const canvas = document.getElementById('mlParticles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = [];
+const connections = [];
+
+// Crear partículas
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = `hsl(${Math.random() * 60 + 200}, 70%, 60%)`;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+    }
+
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+// Inicializar partículas
+for (let i = 0; i < 80; i++) {
+    particles.push(new Particle());
+}
+
+// Animación
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Actualizar y dibujar partículas
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+    });
+
+    // Dibujar conexiones (red neuronal)
+    particles.forEach((a, i) => {
+        particles.forEach((b, j) => {
+            const distance = Math.sqrt(
+                Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2)
+            );
+            if (distance < 100) {
+                ctx.strokeStyle = `hsla(200, 70%, 60%, ${0.2 * (1 - distance/100)})`;
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                ctx.lineTo(b.x, b.y);
+                ctx.stroke();
+            }
+        });
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+// Responsive
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+<style>
+#mlParticles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+</style>
 
     <script>
         // Smooth Scroll ML-Optimizado
@@ -408,3 +392,4 @@ window.addEventListener('resize', () => {
 </body>
 
 </html>
+
